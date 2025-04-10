@@ -41,7 +41,7 @@ smote = SMOTE(random_state=42)
 X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
 
 # Train the model
-model = RandomForestClassifier(random_state=42)
+model = RandomForestClassifier(n_estimators=10, max_depth=4, random_state=42)
 model.fit(X_train_sm, y_train_sm)
 joblib.dump(model, "rf_model.pkl")
 joblib.dump(preprocessor, "preprocessor.pkl")
